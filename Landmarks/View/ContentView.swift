@@ -33,12 +33,17 @@ struct ContentView: View {
 //            .padding()
 //            Spacer()
 //        }
-        LandmarkList()
+//        print("cesjo")
+//        print(landmarks)
+//        print(log)
+//        return Text("saber")
+        return LandmarkList()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(ModelData())
     }
 }
