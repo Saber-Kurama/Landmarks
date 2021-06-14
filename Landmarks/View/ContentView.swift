@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selection: Tab = .featured
+
+    enum Tab {
+        case featured
+        case list
+    }
     var body: some View {
 //        VStack {
 //            MapView().frame(height: 300)
@@ -37,7 +43,21 @@ struct ContentView: View {
 //        print(landmarks)
 //        print(log)
 //        return Text("saber")
-        return LandmarkList()
+//        return LandmarkList()
+        TabView(selection: $selection) {
+            CategoryHome()
+                .tabItem {
+                    Label("Featured", systemImage: "star")
+                }
+                .tag(Tab.featured)
+
+            LandmarkList()
+                .tabItem {
+                    Label("List", systemImage: "list.bullet")
+                }
+                .tag(Tab.list)
+        }
+
     }
 }
 
